@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   FeedStatisticText,
   FeedStatisticBlockText,
@@ -20,3 +21,10 @@ export const FeedbackStatisticBlock = ({
     </FeedStatisticBlockText>
   );
 };
+FeedbackStatisticBlock.propTypes ={
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.func.isRequired,
+  persentage: PropTypes.func.isRequired,
+}

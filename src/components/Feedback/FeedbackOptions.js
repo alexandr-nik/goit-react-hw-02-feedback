@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FeedBlockBtn, FeedBtn } from './FeedbackOptions.module';
 export const FeedbackOptions = ({ onBtnClick }) => {
   return (
@@ -14,3 +15,6 @@ export const FeedbackOptions = ({ onBtnClick }) => {
     </FeedBlockBtn>
   );
 };
+FeedbackOptions.propTypes ={
+  onBtnClick: PropTypes.func.isRequired,
+}
