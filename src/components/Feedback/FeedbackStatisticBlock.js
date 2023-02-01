@@ -21,10 +21,10 @@ export const FeedbackStatisticBlock = ({
     </FeedStatisticBlockText>
   );
 };
-FeedbackStatisticBlock.propTypes ={
+FeedbackStatisticBlock.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
   total: PropTypes.func.isRequired,
   persentage: PropTypes.func.isRequired,
-}
+};

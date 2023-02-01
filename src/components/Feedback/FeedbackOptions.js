@@ -15,6 +15,6 @@ export const FeedbackOptions = ({ onBtnClick }) => {
     </FeedBlockBtn>
   );
 };
-FeedbackOptions.propTypes ={
+FeedbackOptions.propTypes = {
   onBtnClick: PropTypes.func.isRequired,
-}
+};

@@ -21,13 +21,13 @@ export const Feedback = ({
     </FeedBlock>
   );
 };
-Feedback.propTypes ={
+Feedback.propTypes = {
   state: PropTypes.shape({
     good: PropTypes.number.isRequired,
     neutral: PropTypes.number.isRequired,
-    bad:  PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
   }),
   countPositiveFeedbackPercentage: PropTypes.func.isRequired,
   countTotalFeedback: PropTypes.func.isRequired,
   onBtnClick: PropTypes.func.isRequired,
-}
+};

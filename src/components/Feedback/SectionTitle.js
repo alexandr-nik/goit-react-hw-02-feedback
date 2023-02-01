@@ -35,9 +35,8 @@ SectionTitle.propTypes = {
   state: PropTypes.shape({
     good: PropTypes.number.isRequired,
     neutral: PropTypes.number.isRequired,
-    bad:  PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
   }),
   countPositiveFeedbackPercentage: PropTypes.func.isRequired,
   countTotalFeedback: PropTypes.func.isRequired,
-
 };
