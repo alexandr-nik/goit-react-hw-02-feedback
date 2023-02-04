@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { Section } from './Section';
 import { Feedback } from './Feedback';
 import { Statistic } from './Statistics';
+import { NotificationText } from './Add.styled';
 
 export class App extends Component {
   state = {
@@ -24,6 +25,7 @@ export class App extends Component {
   };
 
   render() {
+    const total = this.countTotalFeedback();
     return (
       <>
         <Section title="Please leave feedback">
@@ -33,13 +35,17 @@ export class App extends Component {
           />
         </Section>
         <Section title="Statistics">
-          <Statistic
-            state={this.state}
-            countTotalFeedback={this.countTotalFeedback}
-            countPositiveFeedbackPercentage={
-              this.countPositiveFeedbackPercentage
-            }
-          />
+          {total === 0 ? (
+            <NotificationText>No feedback given</NotificationText>
+          ) : (
+            <Statistic
+              state={this.state}
+              countTotalFeedback={this.countTotalFeedback}
+              countPositiveFeedbackPercentage={
+                this.countPositiveFeedbackPercentage
+              }
+            />
+          )}
         </Section>
       </>
     );

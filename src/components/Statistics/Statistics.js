@@ -9,19 +9,13 @@ export const Statistic = ({
   const { good, neutral, bad } = state;
   return (
     <FeedStatisticBlockText>
-      {countTotalFeedback() === 0 ? (
-        <FeedStatisticText>No feedback given</FeedStatisticText>
-      ) : (
-        <>
-          <FeedStatisticText>Good: {good}</FeedStatisticText>
+    <FeedStatisticText>Good: {good}</FeedStatisticText>
           <FeedStatisticText>Neutral: {neutral}</FeedStatisticText>
           <FeedStatisticText>Bad: {bad}</FeedStatisticText>
           <FeedStatisticText>Total: {countTotalFeedback()}</FeedStatisticText>
           <FeedStatisticText>
             Positive feedback: {countPositiveFeedbackPercentage()}%
           </FeedStatisticText>
-        </>
-      )}
     </FeedStatisticBlockText>
   );
 };
