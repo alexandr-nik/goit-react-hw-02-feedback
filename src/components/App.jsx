@@ -1,5 +1,8 @@
 import { Component } from 'react';
-import { Feedback } from '../components/Feedback';
+import { Section } from './Section';
+import { Feedback } from './Feedback';
+import { Statistic } from './Statistics';
+
 export class App extends Component {
   state = {
     good: 0,
@@ -7,25 +10,9 @@ export class App extends Component {
     bad: 0,
   };
   onBtnClick = e => {
-    switch (e.target.value) {
-      case 'good':
-        this.setState(prevState => ({
-          good: prevState.good + 1,
-        }));
-        break;
-      case 'neutral':
-        this.setState(prevState => ({
-          neutral: prevState.neutral + 1,
-        }));
-        break;
-      case 'bad':
-        this.setState(prevState => ({
-          bad: prevState.bad + 1,
-        }));
-        break;
-      default:
-        break;
-    }
+    this.setState(prevState => ({
+      [e.target.value]: prevState[e.target.value] + 1,
+    }));
   };
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
@@ -35,14 +22,26 @@ export class App extends Component {
     const { good } = this.state;
     return Math.floor((100 * good) / this.countTotalFeedback());
   };
+
   render() {
     return (
-      <Feedback
-        state={this.state}
-        countTotalFeedback={this.countTotalFeedback}
-        countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage}
-        onBtnClick={this.onBtnClick}
-      />
+      <>
+        <Section title="Please leave feedback">
+          <Feedback
+            onBtnClick={this.onBtnClick}
+            options={['good', 'neutral', 'bad']}
+          />
+        </Section>
+        <Section title="Statistics">
+          <Statistic
+            state={this.state}
+            countTotalFeedback={this.countTotalFeedback}
+            countPositiveFeedbackPercentage={
+              this.countPositiveFeedbackPercentage
+            }
+          />
+        </Section>
+      </>
     );
   }
 }

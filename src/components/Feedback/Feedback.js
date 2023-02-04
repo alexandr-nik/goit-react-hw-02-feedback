@@ -1,33 +1,24 @@
 import PropTypes from 'prop-types';
-import { SectionTitle } from './SectionTitle';
-import { FeedbackOptions } from './FeedbackOptions';
-import { FeedBlock, FeedTitle } from './Feedback.module';
+import { FeedBlock, FeedBlockBtn, FeedBtn} from './Feedback.styled';
 
 export const Feedback = ({
-  state,
-  countPositiveFeedbackPercentage,
-  countTotalFeedback,
-  onBtnClick,
+  options, onBtnClick,
 }) => {
-  return (
+  return ( 
     <FeedBlock>
-      <FeedTitle>Please leave feedback</FeedTitle>
-      <FeedbackOptions state={state} onBtnClick={onBtnClick} />
-      <SectionTitle
-        state={state}
-        countPositiveFeedbackPercentage={countPositiveFeedbackPercentage}
-        countTotalFeedback={countTotalFeedback}
-      />
+      <FeedBlockBtn>
+        {options.map(el => {
+          return (
+            <FeedBtn key={el} onClick={e => onBtnClick(e)} value={el}>
+              {el}
+            </FeedBtn>
+          );
+        })}
+      </FeedBlockBtn>
     </FeedBlock>
   );
 };
 Feedback.propTypes = {
-  state: PropTypes.shape({
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-  }),
-  countPositiveFeedbackPercentage: PropTypes.func.isRequired,
-  countTotalFeedback: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   onBtnClick: PropTypes.func.isRequired,
 };
