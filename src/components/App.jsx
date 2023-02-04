@@ -9,9 +9,9 @@ export class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  onBtnClick = e => {
-    this.setState(prevState => ({
-      [e.target.value]: prevState[e.target.value] + 1,
+  onBtnClick = (e,el) => {
+     this.setState(prevState => ({
+      [el]: prevState[el] + 1,
     }));
   };
   countTotalFeedback = () => {

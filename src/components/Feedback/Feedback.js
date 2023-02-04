@@ -9,7 +9,7 @@ export const Feedback = ({
       <FeedBlockBtn>
         {options.map(el => {
           return (
-            <FeedBtn key={el} onClick={e => onBtnClick(e)} value={el}>
+            <FeedBtn key={el} onClick={(e)=> onBtnClick(e, el)} value={el}>
               {el}
             </FeedBtn>
           );
