@@ -1,15 +1,13 @@
 import PropTypes from 'prop-types';
-import { FeedBlock, FeedBlockBtn, FeedBtn} from './Feedback.styled';
+import { FeedBlock, FeedBlockBtn, FeedBtn } from './Feedback.styled';
 
-export const Feedback = ({
-  options, onBtnClick,
-}) => {
-  return ( 
+export const Feedback = ({ options, onBtnClick }) => {
+  return (
     <FeedBlock>
       <FeedBlockBtn>
         {options.map(el => {
           return (
-            <FeedBtn key={el} onClick={(e)=> onBtnClick(e, el)} value={el}>
+            <FeedBtn key={el} onClick={e => onBtnClick(e, el)} value={el}>
               {el}
             </FeedBtn>
           );

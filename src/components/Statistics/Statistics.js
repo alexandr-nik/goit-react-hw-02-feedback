@@ -7,7 +7,7 @@ export const Statistic = ({
   countPositiveFeedbackPercentage,
 }) => {
   const { good, neutral, bad } = state;
-  return (    
+  return (
     <FeedStatisticBlockText>
       {countTotalFeedback() === 0 ? (
         <FeedStatisticText>No feedback given</FeedStatisticText>
@@ -33,4 +33,4 @@ Statistic.propTypes = {
   }).isRequired,
   countPositiveFeedbackPercentage: PropTypes.func.isRequired,
   countTotalFeedback: PropTypes.func.isRequired,
-}
+};

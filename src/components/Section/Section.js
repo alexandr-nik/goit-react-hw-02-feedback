@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
-import { SectionTitle, SectionBlock } from "./Section.styled";
-export const Section =(props) => {
-   return (
+import { SectionTitle, SectionBlock } from './Section.styled';
+export const Section = props => {
+  return (
     <SectionBlock>
-      <SectionTitle>{props.title}</SectionTitle>
+      {props.title && <SectionTitle>{props.title}</SectionTitle>}
       {props.children}
     </SectionBlock>
   );
 };
-Section.propTypes ={
+Section.propTypes = {
   props: PropTypes.exact({
     title: PropTypes.string,
-  })
-}
+  }),
+};
